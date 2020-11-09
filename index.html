@@ -14,7 +14,10 @@
 
   <div id="app">
 
-    <div class="slider">
+    <div class="slider"
+     @mouseenter="stopLoop"
+     @mouseleave="startLoop"
+     >
 
       <div class="prev" @click="prevPhoto">
         <i class="fas fa-arrow-left"></i>

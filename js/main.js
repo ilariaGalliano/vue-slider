@@ -8,12 +8,16 @@ const app = new Vue({
   el: '#app',
   data: {
     indexPhoto: 0,
+    intervalPic:0,
     photos:[
       './images/image1.jpg',
       './images/image2.jpg',
       './images/image3.jpg',
       './images/image4.jpg'
     ]
+  },
+  created(){
+    this.startLoop()
   },
   methods:{
     nextPhoto(){
@@ -32,6 +36,14 @@ const app = new Vue({
     },
     orderPhoto(index){
       this.indexPhoto = index;
+    },
+    startLoop(){
+      this.intervalPic = setInterval(()=>{
+        this.nextPhoto();
+      },3000);
+    },
+    stopLoop(){
+      clearInterval(this.intervalPic);
     }
   }
 });
