@@ -16,23 +16,29 @@
 
     <div class="slider">
 
-      <div class="prev">
+      <div class="prev" @click="prevPhoto">
         <i class="fas fa-arrow-left"></i>
       </div>
 
       <div class="image">
-        <img src="./images/image1.jpg" alt="photo">
+        <img :src="photos[indexPhoto]" alt="photo">
       </div>
 
-      <div class="next">
+      <div class="next" @click="nextPhoto" >
         <i class="fas fa-arrow-right"></i>
       </div>
 
       <div class="dots">
-        <i class="fas fa-circle active"></i>
+        <!-- <i class="fas fa-circle active"></i>
         <i class="fas fa-circle"></i>
         <i class="fas fa-circle"></i>
-        <i class="fas fa-circle"></i>
+        <i class="fas fa-circle"></i> -->
+        <i v-for="(photo,index) in photos"
+          :class="['fas fa-circle',
+                  index == indexPhoto ? 'active' : '']"
+          @click= "orderPhoto(index)"
+          >
+        </i>
       </div>
 
     </div>
